@@ -49,9 +49,9 @@ def gImages(list_filename):
 	
 	return images, source_images
 
-def gKeypoints():
+def gKeypoints(csv_row, source_images):
 	"""generate keypoints from x and y axis (list_filename)"""
-	req_image = req_images.reset_index()
+	req_image = csv_row.reset_index()
 	keypoint_features = []
 	for index, image in enumerate(source_images):
 		try:
