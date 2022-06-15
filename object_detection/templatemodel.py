@@ -32,7 +32,7 @@ def Preprocess(path):
 
 	plt.figure(figsize=(10, 10))
 	for images, labels in train_ds.take(1):
-		ax = plt.subplot(3, 3, i + 1)
+		ax = plt.subplot(3, 3, 1)
 		plt.imshow(images.numpy().astype("uint8"))
 		plt.title(class_names[labels])
 		plt.axis("off")
