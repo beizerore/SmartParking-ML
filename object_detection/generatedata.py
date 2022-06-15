@@ -1,4 +1,5 @@
 import numpy as np
+import cv2
 
 def gLabel(number, csv_row):
 	"""generate label from class columns (req_images['class'])"""
@@ -9,6 +10,8 @@ def gLabel(number, csv_row):
 	while i < len(classes):
 		label.append(classes[i])
 		i+=40
+
+	print(label[:5])
 
 	train_label = []
 	space_empty = 0
@@ -26,6 +29,8 @@ def gFilename(csv_row):
 	for filename in csv_row:
 		if 'train/'+filename not in list_filename:
 			list_filename.append('train/'+filename)
+
+	print("images not duplicated: {}".format(len(list_filename)))
 
 	return list_filename
 
@@ -62,3 +67,20 @@ def gKeypoints():
 
 	keypoint_features = np.array(keypoint_features, dtype='float32')
 	return keypoint_features
+
+def gAnnotations(csv_row, source_images):
+	"""generate keypoints from x and y axis (list_filename)"""
+	req_image = csv_row.reset_index()
+	annotations = []
+	for index, image in enumerate(source_images):
+		try:
+			image_name = image
+			mask = req_image.iloc[[index]]
+			mask = mask.values.tolist()
+			keypoints = (mask[0][5:9])
+			annotations.append(keypoints)
+		except:
+			print('error !')
+			break
+
+	return annotations
