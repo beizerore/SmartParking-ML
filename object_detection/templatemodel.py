@@ -1,5 +1,6 @@
 import tensorflow as tf
 import pathlib
+import matplotlib.pyplot as plt
 
 batch_size = 32
 img_height = 96

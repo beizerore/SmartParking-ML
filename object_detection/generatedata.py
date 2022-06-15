@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-def gLabel(number, csv_row):
+def Label(number, csv_row):
 	"""generate label from class columns (req_images['class'])"""
 	classes = csv_row.tolist()
 
@@ -23,7 +23,7 @@ def gLabel(number, csv_row):
 	train_label = np.array(train_label, dtype='float32')
 	return train_label
 
-def gFilename(csv_row):
+def Filename(csv_row):
 	"""generate filename from filename columns (req_images['filename'])"""
 	list_filename = []
 	for filename in csv_row:
@@ -34,7 +34,7 @@ def gFilename(csv_row):
 
 	return list_filename
 
-def gImages(list_filename):
+def Images(list_filename):
 	"""generate images from filename list (list_filename)"""
 	images = []
 	for index, element in enumerate(list_filename):
@@ -49,7 +49,7 @@ def gImages(list_filename):
 	
 	return images, source_images
 
-def gKeypoints(csv_row, source_images):
+def Keypoints(csv_row, source_images):
 	"""generate keypoints from x and y axis (list_filename)"""
 	req_image = csv_row.reset_index()
 	keypoint_features = []
@@ -68,7 +68,7 @@ def gKeypoints(csv_row, source_images):
 	keypoint_features = np.array(keypoint_features, dtype='float32')
 	return keypoint_features
 
-def gAnnotations(csv_row, source_images):
+def Annotations(csv_row, source_images):
 	"""generate keypoints from x and y axis (list_filename)"""
 	req_image = csv_row.reset_index()
 	annotations = []
