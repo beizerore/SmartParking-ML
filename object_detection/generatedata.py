@@ -11,7 +11,7 @@ def Label(number, csv_row):
 		label.append(classes[i])
 		i+=40
 
-	print(label[:5])
+	#print(label[:5])
 
 	train_label = []
 	space_empty = 0
