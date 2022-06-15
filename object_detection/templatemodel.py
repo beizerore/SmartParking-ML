@@ -37,10 +37,10 @@ def Preprocess(path):
 		plt.title(class_names[labels])
 		plt.axis("off")
 
-	for image_batch, labels_batch in train_ds:
+	# for image_batch, labels_batch in train_ds:
 		# print("image_batch shape: {}".format(image_batch.shape))
 		# print("label_batch shape: {}".format(labels_batch.shape))
-		break
+		# break
 
 	AUTOTUNE = tf.data.AUTOTUNE
 	
