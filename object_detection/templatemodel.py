@@ -28,19 +28,18 @@ def Preprocess(path):
 	)
 
 	class_names = train_ds.class_names
-	print("class names : {}".format(class_names))
+	# print("class names : {}".format(class_names))
 
 	plt.figure(figsize=(10, 10))
 	for images, labels in train_ds.take(1):
-		for i in range(1):
-			ax = plt.subplot(3, 3, i + 1)
-			plt.imshow(images[i].numpy().astype("uint8"))
-			plt.title(class_names[labels[i]])
-			plt.axis("off")
+		ax = plt.subplot(3, 3, i + 1)
+		plt.imshow(images.numpy().astype("uint8"))
+		plt.title(class_names[labels])
+		plt.axis("off")
 
 	for image_batch, labels_batch in train_ds:
-		print("image_batch shape: {}".format(image_batch.shape))
-		print("label_batch shape: {}".format(labels_batch.shape))
+		# print("image_batch shape: {}".format(image_batch.shape))
+		# print("label_batch shape: {}".format(labels_batch.shape))
 		break
 
 	AUTOTUNE = tf.data.AUTOTUNE
@@ -53,7 +52,7 @@ def Preprocess(path):
 	image_batch, labels_batch = next(iter(normalized_ds))
 	first_image = image_batch[0]
 
-	print("normalization: {} {}".format(np.min(first_image), np.max(first_image)))
+	# print("normalization: {} {}".format(np.min(first_image), np.max(first_image)))
 
 	return train_ds, val_ds, class_names
 
