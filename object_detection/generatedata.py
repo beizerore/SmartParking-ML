@@ -84,3 +84,14 @@ def Annotations(csv_row, source_images):
 			break
 
 	return annotations
+
+def Keyplot(all_keypoints):
+	axisX = []
+	axisY = []
+	for key in all_keypoints:
+		startX, endX = int(key[0]), int(key[1])
+		startY, endY = int(key[2]), int(key[3])
+		axisX.append((startX, endX))
+		axisY.append((startY, endY))
+
+	return axisX, axisY
