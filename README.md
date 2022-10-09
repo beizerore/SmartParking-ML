@@ -1,3 +1,5 @@
+# SmartParking-ML
+
 Machine Learning part for SPARKLE (Smart Parking Low Effort) apps.
 Features:
 1. Detect parking spaces whether it's empty or occupied (CNN)
